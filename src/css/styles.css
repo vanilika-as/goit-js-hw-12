@@ -6,5 +6,171 @@
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: Montserrat, Arial, sans-serif;
+  color: #2e2f42;
+  background-color: #ffffff;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page {
+  width: min(100% - 32px, 1128px);
+  margin: 36px auto;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.form input {
+  width: 272px;
+  height: 40px;
+  padding: 8px 16px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  outline: none;
+  color: #2e2f42;
+  transition: border-color 250ms ease;
+}
+
+.form input:hover {
+  border-color: #000000;
+}
+
+.form input:focus {
+  border-color: #4e75ff;
+}
+
+.form input::placeholder {
+  color: #808080;
+}
+
+.form button,
+.btn-load-more {
+  height: 40px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4e75ff;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 250ms ease;
+}
+
+.form button:hover,
+.form button:focus,
+.btn-load-more:hover,
+.btn-load-more:focus {
+  background-color: #6c8cff;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.gallery-item {
+  border: 1px solid #808080;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.gallery-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 4px 12px;
+}
+
+.info-item {
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.33;
+}
+
+.info-item b {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 12px;
+  line-height: 1.33;
+}
+
+.btn-load-more {
+  display: block;
+  margin: 32px auto 0;
+}
+
+.loader {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: 24px auto;
+  border: 5px solid #4e75ff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: rotation 1s linear infinite;
+}
+
+.is-hidden {
+  display: none;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .form {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .form input,
+  .form button {
+    width: 100%;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
 }
